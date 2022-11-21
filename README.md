@@ -1,7 +1,8 @@
 # idfsb
 
-This project is an attempt to get [Sensory Bridge](https://github.com/connornishijima/SensoryBridge) to run correctly on
-[esp-idf](https://github.com/espressif/esp-idf).
+This project is an attempt to get [Sensory Bridge](https://github.com/connornishijima/SensoryBridge) to run with minimal modifications on
+[esp-idf](https://github.com/espressif/esp-idf)  v5.x 
+
 Specifically [this version](https://github.com/espressif/esp-idf/releases/tag/v5.0-rc1)
 which has some advanced RMT and I2S features.
 
