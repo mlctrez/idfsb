@@ -1,0 +1,21 @@
+dependencies:
+  espressif/esp_tinyusb:
+    component_hash: 4fa75cb0739eddaf6aca1b57c4796387062f82eeb08435540792438beeb3316c
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 0.0.1
+  idf:
+    component_hash: null
+    source:
+      type: idf
+    version: 5.0.0
+  joltwallet/littlefs:
+    component_hash: 2fa0ef8823451b00cec4eec1a18f810e9267b1f588513a64526be456c8a9d59a
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 1.5.1
+manifest_hash: 41c44c0c2997ae986d85cd8a868c76c9fb0220a9395b5071de328a5ddb900bc4
+target: esp32s2
+version: 1.0.0

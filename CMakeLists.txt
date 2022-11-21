@@ -8,3 +8,5 @@ include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(idfsb)
 
 idf_build_set_property(COMPILE_OPTIONS "-Wno-deprecated-declarations" APPEND)
+
+littlefs_create_partition_image(littlefs flash_data)

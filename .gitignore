@@ -3,3 +3,4 @@ build
 cmake-build*
 temp
 sdkconfig.old
+managed_components
