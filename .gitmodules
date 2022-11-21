@@ -1,0 +1,6 @@
+[submodule "SensoryBridge"]
+	path = SensoryBridge
+	url = https://github.com/connornishijima/SensoryBridge.git
+[submodule "FastLED"]
+	path = FastLED
+	url = https://github.com/FastLED/FastLED.git
