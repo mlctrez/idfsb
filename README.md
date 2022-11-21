@@ -20,7 +20,6 @@ git describe --long
 v5.0-rc1-0-g3f2f35b
 
 # run the installer for the target platform
-# most of this is installed into ~/.ex
 ./install.sh esp32s2
 
 # source in one of the export.xx files, depending on your OS
