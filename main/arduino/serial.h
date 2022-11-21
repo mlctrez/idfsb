@@ -1,10 +1,11 @@
 #pragma once
 
-//#include <unistd.h>
-//#include <fcntl.h>
+#include <fcntl.h>
 #include <cstdio>
 
 const int HEX = 0x10;
+
+extern int unistd_read(int fd, void *buf, size_t len);
 
 class SerialMock {
 private:
@@ -32,12 +33,11 @@ public:
   void print(uint8_t data) { printf("%d", data); };
 
   void begin(uint64_t baud_rate) {
-//    fcntl(0, F_SETFL, fcntl(0, F_GETFL) | O_NONBLOCK);
+    fcntl(0, F_SETFL, fcntl(0, F_GETFL) | O_NONBLOCK);
   };
 
   int available() {
-//    return ::read(0, serial_buf, 1);
-return 0;
+    return unistd_read(0, serial_buf, 1);
   }
 
   char read() {
@@ -50,10 +50,5 @@ return 0;
 
 };
 
-#ifdef SERIAL_EXTERNAL
+
 extern SerialMock Serial;
-#else
-SerialMock Serial;
-#endif
-
-

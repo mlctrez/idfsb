@@ -135,8 +135,19 @@ void loop() {
 }
 
 extern "C" [[noreturn]] void app_main(void) {
-  ESP_LOGI("app_main", "entry");
+
   init_system();  // (system.h) Initialize all hardware and arrays
+
+  ESP_LOGI("app_main", "configuration");
+  ESP_LOGI("app_main", "CONFIG.LIGHTSHOW_MODE       = %x", CONFIG.LIGHTSHOW_MODE);
+  ESP_LOGI("app_main", "CONFIG.DC_OFFSET            = %ld", CONFIG.DC_OFFSET);
+  ESP_LOGI("app_main", "CONFIG.MIRROR_ENABLED       = %x", CONFIG.MIRROR_ENABLED);
+  ESP_LOGI("app_main", "CONFIG.BASE_HUE             = %f", CONFIG.BASE_HUE);
+  ESP_LOGI("app_main", "CONFIG.CHROMA               = %f", CONFIG.CHROMA);
+  ESP_LOGI("app_main", "CONFIG.MOOD                 = %f", CONFIG.MOOD);
+  ESP_LOGI("app_main", "CONFIG.PHOTONS              = %f", CONFIG.PHOTONS);
+  ESP_LOGI("app_main", "CONFIG.ESPNOW_CHANNEL       = %x", CONFIG.ESPNOW_CHANNEL);
+  ESP_LOGI("app_main", "CONFIG.WAVEFORM_NOISE_FLOOR = %lx", CONFIG.WAVEFORM_NOISE_FLOOR);
 
   for (;;) {
     loop();

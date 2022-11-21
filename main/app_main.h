@@ -23,6 +23,7 @@ enum lightshow_modes {
 #include <esp_intr_alloc.h>
 #include <soc/i2s_reg.h>
 #include <esp_now.h>
+#include <esp_check.h>
 #include <esp_wifi_types.h>
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>

@@ -31,7 +31,7 @@ conf CONFIG = { // Defaults of the CONFIG struct
   0, // DC_OFFSET
   0, // WAVEFORM_NOISE_FLOOR
   3, // ESPNOW_CHANNEL
-  true, // IS_MAIN_UNIT
+  false, // IS_MAIN_UNIT
 };
 
 float   MASTER_BRIGHTHNESS   = 0.0;

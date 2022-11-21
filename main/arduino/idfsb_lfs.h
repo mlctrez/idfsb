@@ -18,7 +18,6 @@ public:
   File(FILE *file);
 
   void seek(const int position) {
-    ESP_LOGI("File", "seek");
     fseek(_file, position, SEEK_SET);
   };
 
