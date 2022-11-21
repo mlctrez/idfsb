@@ -15,6 +15,8 @@ enum lightshow_modes {
     NUM_MODES  // used to know the length of this list if it changes
 };
 
+#define DEBUG_MODE 1
+
 #include <cstdint>
 #include <cstring>
 #include <cmath>
@@ -32,6 +34,7 @@ enum lightshow_modes {
 #include "hardware_config.h"
 
 #include "Arduino.h"
+#include "Ticker.h"
 #include "serial.h"
 #include "fastled.h"
 #include "idfsb_lfs.h"

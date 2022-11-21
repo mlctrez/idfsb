@@ -112,7 +112,7 @@ button mode_button;
 uint32_t last_setting_change = 0;
 bool settings_updated = false;
 
-//Ticker cpu_usage;
+Ticker cpu_usage;
 volatile uint16_t function_id = 0;
 volatile uint16_t function_hits[32] = {0};
 

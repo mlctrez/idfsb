@@ -3,12 +3,13 @@ idf_component_register(
             "app_main.cpp"
             "firmware/ESP32_fft.cpp"
             "encoder/led_strip_encoder.c"
+            "ticker/Ticker.cpp"
             "arduino/serial.cpp"
         INCLUDE_DIRS
             "overrides"
             "firmware"
             "encoder"
             "arduino"
+            "ticker"
             "."
-
 )

@@ -58,48 +58,48 @@ void print_mac(const uint8_t *mac_addr) {
 }
 
 void sync_settings(uint32_t t_now) {
-//  SB_COMMAND_SYNC_SETTINGS setting;
-//
-//  setting.PHOTONS_KNOB = CONFIG.PHOTONS;
-//  setting.CHROMA_KNOB = CONFIG.CHROMA;
-//  setting.MOOD_KNOB = CONFIG.MOOD;
-//  setting.BASE_HUE = CONFIG.BASE_HUE;
-//  setting.LIGHTSHOW_MODE = CONFIG.LIGHTSHOW_MODE;
-//  setting.MIRROR_ENABLED = CONFIG.MIRROR_ENABLED;
-//
-//  const uint8_t *peer_addr = broadcast_peer.peer_addr;
-//  esp_now_send(peer_addr, (uint8_t *)&setting, sizeof(SB_COMMAND_SYNC_SETTINGS));
+  SB_COMMAND_SYNC_SETTINGS setting;
+
+  setting.PHOTONS_KNOB = CONFIG.PHOTONS;
+  setting.CHROMA_KNOB = CONFIG.CHROMA;
+  setting.MOOD_KNOB = CONFIG.MOOD;
+  setting.BASE_HUE = CONFIG.BASE_HUE;
+  setting.LIGHTSHOW_MODE = CONFIG.LIGHTSHOW_MODE;
+  setting.MIRROR_ENABLED = CONFIG.MIRROR_ENABLED;
+
+  const uint8_t *peer_addr = broadcast_peer.peer_addr;
+  esp_now_send(peer_addr, (uint8_t *)&setting, sizeof(SB_COMMAND_SYNC_SETTINGS));
 }
 
 void identify_main_unit() {
-//  SB_COMMAND_IDENTIFY_MAIN identify;
-//
-//  const uint8_t *peer_addr = broadcast_peer.peer_addr;
-//  for (uint8_t i = 0; i < 4; i++) {
-//    esp_now_send(peer_addr, (uint8_t *)&identify, sizeof(SB_COMMAND_IDENTIFY_MAIN));
-//  }
-//
-//  blocking_flash(CRGB(255, 0, 0)); // We aren't main unit, flash red
+  SB_COMMAND_IDENTIFY_MAIN identify;
+
+  const uint8_t *peer_addr = broadcast_peer.peer_addr;
+  for (uint8_t i = 0; i < 4; i++) {
+    esp_now_send(peer_addr, (uint8_t *)&identify, sizeof(SB_COMMAND_IDENTIFY_MAIN));
+  }
+
+  blocking_flash(CRGB(255, 0, 0)); // We aren't main unit, flash red
 }
 
 void propagate_noise_cal() {
-//  if (CONFIG.IS_MAIN_UNIT) {
-//    SB_COMMAND_TRIGGER_NOISE_CAL trigger;
-//    const uint8_t *peer_addr = broadcast_peer.peer_addr;
-//    for (uint8_t i = 0; i < 4; i++) {
-//      esp_now_send(peer_addr, (uint8_t *)&trigger, sizeof(SB_COMMAND_TRIGGER_NOISE_CAL));
-//    }
-//  }
+  if (CONFIG.IS_MAIN_UNIT) {
+    SB_COMMAND_TRIGGER_NOISE_CAL trigger;
+    const uint8_t *peer_addr = broadcast_peer.peer_addr;
+    for (uint8_t i = 0; i < 4; i++) {
+      esp_now_send(peer_addr, (uint8_t *)&trigger, sizeof(SB_COMMAND_TRIGGER_NOISE_CAL));
+    }
+  }
 }
 
 void propagate_noise_reset() {
-//  if (CONFIG.IS_MAIN_UNIT) {
-//    SB_COMMAND_CLEAR_NOISE_CAL clear;
-//    const uint8_t *peer_addr = broadcast_peer.peer_addr;
-//    for (uint8_t i = 0; i < 4; i++) {
-//      esp_now_send(peer_addr, (uint8_t *)&clear, sizeof(SB_COMMAND_CLEAR_NOISE_CAL));
-//    }
-//  }
+  if (CONFIG.IS_MAIN_UNIT) {
+    SB_COMMAND_CLEAR_NOISE_CAL clear;
+    const uint8_t *peer_addr = broadcast_peer.peer_addr;
+    for (uint8_t i = 0; i < 4; i++) {
+      esp_now_send(peer_addr, (uint8_t *)&clear, sizeof(SB_COMMAND_CLEAR_NOISE_CAL));
+    }
+  }
 }
 
 void on_data_tx(const uint8_t *mac_addr, esp_now_send_status_t status) {
@@ -177,18 +177,18 @@ esp_err_t init_p2p() {
 }
 
 void run_p2p() {
-//  uint32_t t_now = millis();
-//
-//  if (t_now - last_rx_time >= 1000) {
-//    main_override = true;
-//  }
-//
-//  if (CONFIG.IS_MAIN_UNIT) {
-//    sync_settings(t_now);
-//  }
-//
-//  if (flashing_flag) {
-//    flashing_flag = false;
-//    blocking_flash(CRGB(0, 255, 0));
-//  }
+  uint32_t t_now = millis();
+
+  if (t_now - last_rx_time >= 1000) {
+    main_override = true;
+  }
+
+  if (CONFIG.IS_MAIN_UNIT) {
+    sync_settings(t_now);
+  }
+
+  if (flashing_flag) {
+    flashing_flag = false;
+    blocking_flash(CRGB(0, 255, 0));
+  }
 }

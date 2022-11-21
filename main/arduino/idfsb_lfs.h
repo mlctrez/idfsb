@@ -26,8 +26,8 @@ public:
   };
 
   int read() {
-    int num;
-    fread(&num, sizeof(int), 1, _file);
+    uint8_t num;
+    fread(&num, sizeof(uint8_t), 1, _file);
     return num;
   }
 

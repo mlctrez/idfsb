@@ -136,18 +136,57 @@ void loop() {
 
 extern "C" [[noreturn]] void app_main(void) {
 
+
+//  const char *partition = "littlefs";
+//
+//  esp_vfs_littlefs_conf_t conf = {
+//          .base_path = LFS_BASE_PATH,
+//          .partition_label = partition,
+//          .format_if_mount_failed = true,
+//          .dont_mount = false,
+//  };
+//
+//  esp_err_t ret = esp_vfs_littlefs_register(&conf);
+//
+//  FILE *pFile = fopen("/littlefs/sample.txt", "w");
+//  if (pFile == nullptr) {
+//    printf("unable to open file for writing\n");
+//
+//  } else {
+//    int dataToWrite = 1234;
+//    size_t written = fwrite(&dataToWrite, sizeof(dataToWrite), 1, pFile);
+//    printf("wrote %d length\n", written);
+//    fclose(pFile);
+//  }
+//
+//  pFile = fopen("/littlefs/sample.txt", "r");
+//  if (pFile == nullptr) {
+//    printf("unable to open file for reading\n");
+//  } else {
+//
+//    int dataToRead = 0;
+//    size_t read = fread(&dataToRead, sizeof(dataToRead), 1, pFile);
+//    printf("read %d length\n", read);
+//    printf("value was %d\n", dataToRead);
+//    fclose(pFile);
+//
+//  }
+//  esp_vfs_littlefs_unregister(partition);
+
+
   init_system();  // (system.h) Initialize all hardware and arrays
 
   ESP_LOGI("app_main", "configuration");
-  ESP_LOGI("app_main", "CONFIG.LIGHTSHOW_MODE       = %x", CONFIG.LIGHTSHOW_MODE);
+  ESP_LOGI("app_main", "CONFIG.LIGHTSHOW_MODE       = %x ", CONFIG.LIGHTSHOW_MODE);
   ESP_LOGI("app_main", "CONFIG.DC_OFFSET            = %ld", CONFIG.DC_OFFSET);
-  ESP_LOGI("app_main", "CONFIG.MIRROR_ENABLED       = %x", CONFIG.MIRROR_ENABLED);
-  ESP_LOGI("app_main", "CONFIG.BASE_HUE             = %f", CONFIG.BASE_HUE);
-  ESP_LOGI("app_main", "CONFIG.CHROMA               = %f", CONFIG.CHROMA);
-  ESP_LOGI("app_main", "CONFIG.MOOD                 = %f", CONFIG.MOOD);
-  ESP_LOGI("app_main", "CONFIG.PHOTONS              = %f", CONFIG.PHOTONS);
-  ESP_LOGI("app_main", "CONFIG.ESPNOW_CHANNEL       = %x", CONFIG.ESPNOW_CHANNEL);
+  ESP_LOGI("app_main", "CONFIG.MIRROR_ENABLED       = %x ", CONFIG.MIRROR_ENABLED);
+  ESP_LOGI("app_main", "CONFIG.BASE_HUE             = %f ", CONFIG.BASE_HUE);
+  ESP_LOGI("app_main", "CONFIG.CHROMA               = %f ", CONFIG.CHROMA);
+  ESP_LOGI("app_main", "CONFIG.MOOD                 = %f ", CONFIG.MOOD);
+  ESP_LOGI("app_main", "CONFIG.PHOTONS              = %f ", CONFIG.PHOTONS);
+  ESP_LOGI("app_main", "CONFIG.ESPNOW_CHANNEL       = %x ", CONFIG.ESPNOW_CHANNEL);
   ESP_LOGI("app_main", "CONFIG.WAVEFORM_NOISE_FLOOR = %lx", CONFIG.WAVEFORM_NOISE_FLOOR);
+  ESP_LOGI("app_main", "CONFIG.IS_MAIN_UNIT         = %s ", CONFIG.IS_MAIN_UNIT ? "true" : "false");
 
   for (;;) {
     loop();
