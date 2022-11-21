@@ -57,12 +57,12 @@ the [IDF monitor](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/ap
 triggering builds and flashing the device without exiting the monitor.
 
 
+### Build problems
+sometimes this error pops up
 ```text
-# sometimes this error pops up
-Some components (joltwallet/littlefs) in the "managed_components" directory were modified         
+
+Some components (joltwallet/littlefs) in the "managed_components" directory were modified        
 on the disk since the last run of the CMake. Content of this directory is managed automatically.
 
-Just remove managed_components/joltwallet__littlefs/.component_hash and continue
-
-
 ```
+Just remove managed_components/joltwallet__littlefs/.component_hash and continue
